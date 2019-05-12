@@ -5,7 +5,7 @@ const geocode = require("./utils/geocode");
 const weather = require("./utils/weather_api");
 
 const app = express();
-
+const port = process.env.PORT || 3000;
 console.log(__dirname);
 const publicDirectory = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
@@ -83,6 +83,6 @@ app.get("/json", (req, res) => {
 app.get("*", (req, res) => {
   res.render("error.hbs");
 });
-app.listen(3000, () => {
-  console.log("Port active and running on port 3000");
+app.listen(port, () => {
+  console.log("Port active and running on port " + port);
 });
